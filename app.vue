@@ -18,19 +18,19 @@ import { Calendar } from 'v-calendar';
 //const colorMode = useColorMode()
 //console.log(colorMode.preference)
 useHead({
-	title: "Lamhouse IT Solution",
+	title: "Lamcom Ecommerce",
 	meta: [
 		{
 			name: "description",
-			content: "LAM House symbolises Brilliance, Reliability and Integrity",
+			content: "MK AGENCY are the huge name in cleaning chemicals industry since 2000 started in the Bengaluru, Karnataka state in India.",
 		},
 		{
 			property: "og:title",
-			content: "Lamhouse IT Solution",
+			content: "MK Agency",
 		},
 		{
 			property: "og:description",
-			content: "LAM House symbolises Brilliance, Reliability and Integrity ",
+			content: "MK AGENCY are the huge name in cleaning chemicals industry since 2000 started in the Bengaluru, Karnataka state in India.",
 		},
 		{
 			property: "og:image",
@@ -38,11 +38,11 @@ useHead({
 		},
 		{
 			property: "og:type",
-			content: "https://www.lamhouse.in",
+			content: "http://www.mkagenciesblr.com",
 		},
 		{
 			property: "og:site_name",
-			content: "Lamhouse",
+			content: "MK Agency",
 		},
 	],
 });
