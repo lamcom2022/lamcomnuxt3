@@ -47,7 +47,7 @@
           <p class="font-bold text-lg text-center align-middle mt-3 uppercase h-8">
             Industrial Cleaning Machines
           </p>
-          <p class="font-normal text-center align-middle mt-3 h-24">
+          <p class="font-normal text-center align-middle mt-3 h-24 mx-4">
             We offer Brushes, Paper Towels, Toilet Brushes, Drop Mop Sets, Floor
             Squeezes, Herbal cleaners, Phenyle compounds, Herbal Phenyle and
             House Keeping Chemicals, Floor cleaning brushes
@@ -74,7 +74,7 @@
           <p class="font-bold text-lg text-center mt-3 uppercase h-8">
             Smart Cleaning Tools
           </p>
-          <p class="font-normal text-center mt-3 h-24">
+          <p class="font-normal text-center mt-3 h-24 mx-4 mx-4">
             We offer Cleaning Tools such as Toilet Brushes, Soft Brooms, Floor Wipers, Plunger and containers, Floor Scrapper, Glass Scrapper, Fan Brushes, Pipe Brushes
           </p>
         </div>
@@ -100,7 +100,7 @@
           <p class="font-bold text-lg text-center align-middle mt-3 uppercase h-8">
             House Keeping Consumables
           </p>
-          <p class="font-normal text-center align-middle mt-3 h-24">
+          <p class="font-normal text-center align-middle mt-3 h-24 mx-4">
             We offer Brushes, Paper Towels, Toilet Brushes, Drop Mop Sets, Floor
             Squeezes, Herbal cleaners, Phenyle compounds, Herbal Phenyle and
             House Keeping Chemicals, Floor cleaning brushes
@@ -128,7 +128,7 @@
           <p class="font-bold text-lg text-center align-middle mt-3 uppercase h-8">
             Other Cleaning Tools
           </p>
-          <p class="font-normal text-center align-middle mt-3 h-24">
+          <p class="font-normal text-center align-middle mt-3 h-24 mx-4">
             We offer Industrial cleaning machines,Vacuum cleaners,automatic
             floor scrubber machines,commercial cleaning equipments,commercial
             mopping machine,electric floor scrubber for tile,electric floor

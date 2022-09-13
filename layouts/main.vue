@@ -1,9 +1,8 @@
 <template>
     <div class="min-h-screen relative">
-        <div class="h-full relative">
-           <Top />
+        <div class="h-full relative">          
             <Header />
-            <slot />
+            <slot />            
             <Footer />
             <ContactSales />
             <SignUp />

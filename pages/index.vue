@@ -4,7 +4,9 @@
     <Stripe />
     <HomeAbout />
     <Blog :articles="articles" /> 
-    <HomeSpecial />   
+    <HomeSpecial />
+    <SatisfyClients />
+    <Map /> 
     <!-- <Testimonials /> -->
   </div>
 
