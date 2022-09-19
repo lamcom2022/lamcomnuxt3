@@ -1,8 +1,7 @@
 <template>
-  <div>
+ <div>
     <Hero />
-    <Login />
-   
+    <Gallery />
     <!-- <Testimonials /> -->
   </div>
 

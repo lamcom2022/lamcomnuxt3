@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-lg mx-auto lg:max-w-7xl">
+  <div class="relative max-w-lg mx-auto lg:max-w-7xl mb-10">
     <div class="pt-10 pb-10 px-4 sm:px-6 lg:pt-10 lg:pb-28 lg:px-8">
       <h3
         class="

@@ -1,30 +1,14 @@
 <template>
   <div>
     <div
-      class="min-h-screen flex-col justify-center flex lg:h-screen w-screen lg:overflow-hidden xs:flex-col lg:flex-row">
+      class="flex-col justify-center flex  lg:overflow-hidden xs:flex-col lg:flex-row">
       <!--Faetures Section (Start)-->
-      <div class="hidden lg:block relative bg-gradient-to-br bg-primary-200 lg:w-3/4 lg:h-full">
-        <div class="flex flex-col justify-center sm:px-6 lg:px-8 pt-1/4">
-          <h2 class="mt-2 text-center text-2xl font-extrabold text-gray-900">{{ menuitems.featuregrid[0].h2 }}</h2>
-        </div>
-        <div class="relative lg:grid lg:gap-x-8 m-10">
-          <dl class="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
-            <div class="relative" v-for="featuregrid in menuitems.featuregrid[0].children" :key="featuregrid.smaltitle">
-              <dt>
-                <div class="absolute flex items-center justify-center h-12 w-12">
-                  <img :src="featuregrid.img" width="50" height="50" :alt="featuregrid.feature" />
-                </div>
-                <p class="ml-16 text-lg leading-6 font-semibold text-gray-900">{{ featuregrid.feature }}</p>
-              </dt>
-              <dd class="mt-2 ml-16 text-base text-gray-500">
-                {{ featuregrid.description }}
-              </dd>
-            </div>
-          </dl>
-        </div>
+      <div class="hidden lg:block relative lg:w-3/4 lg:h-full mx-auto">
+       <img src="https://res.cloudinary.com/lamcom/image/upload/c_scale,w_900/v1663429460/mkagency/login/login_brrler.jpg">
+       
       </div>
       <!--Faetures Section (End)-->
-      <div class="sm:mx-auto sm:w-full sm:max-w-md py-40">
+      <div class="sm:mx-auto sm:w-full sm:max-w-md py-40 items-left">
         <a href="/#" class="font-medium text-primary-600 hover:text-primary-500">
           <img tag="img" to="/#" alt="Logo" class="mx-auto h-12 w-auto" :src="menuitems.branding.logo.source" />
         </a>
@@ -33,7 +17,7 @@
           Get started with {{ menuitems.title }}</h2>
         <p v-if="!forgotPassword && !formSignUp" class="mt-2 text-center text-sm text-gray-600 max-w">
           Don't have an account yet?
-          <a @click="handleSignUpClick" href="#" class="font-medium text-primary-600 hover:text-primary-500"> Sign up
+          <a @click="handleSignUpClick" href="/signup" class="font-medium text-primary-600 hover:text-primary-500"> Sign up
           </a>
         </p>
         <!-- <p v-if="forgotPassword" class="mt-2 text-center text-sm text-gray-600 max-w">

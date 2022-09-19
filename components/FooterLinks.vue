@@ -27,7 +27,7 @@
                         <a :href="sm.link" class="text-base text-white leading-6 text-white hover:text-primary-500">
                             {{ sm.title }}
                         </a>
-                    </li>
+                    </li>                    
                 </ul>
             </div>
            
@@ -130,4 +130,5 @@ export default {
     }
 }
 </script>
+
 

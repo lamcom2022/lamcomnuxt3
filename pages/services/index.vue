@@ -1,7 +1,7 @@
 <template>
   <div>
     
-     <ServiceComp :services="services" />
+     <ServiceComp :articles ="articles" />
     
   </div>
 
@@ -13,7 +13,7 @@ definePageMeta({
   layout: "main",
 })
 const { data: color } = ref('white')
-const { data: services } = await useAsyncData('services-list', () => queryContent('services')
+const { data: articles } = await useAsyncData('articles-list', () => queryContent('articles')
   .only([
     "title",
     "description",

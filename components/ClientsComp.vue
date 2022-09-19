@@ -9,85 +9,88 @@
         <div class="max-w-7xl inline-block mx-auto mt-6 pt-5 grid gap-4 lg:grid-cols-4 lg:gap-x-4 lg:gap-y-8">
              
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662791566/lamhouse/clientlogo/advik_t23t7y.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162160/mkagency/clients/1_fxrngx.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662795985/lamhouse/clientlogo/bigbee_uztmzk.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162160/mkagency/clients/2_ng0a84.jpg">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662789364/lamhouse/clientlogo/bigbull_ge3h5x.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162161/mkagency/clients/3_tggmdv.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662791936/lamhouse/clientlogo/cleveland_oxpjr3.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162160/mkagency/clients/4_fv0t50.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662710561/lamhouse/clientlogo/covidfix_let8jk.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162199/mkagency/clients/sakra_pmdi4m.jpg">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662792186/lamhouse/clientlogo/ctv_ztavzi.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663163229/mkagency/clients/7_tfy3rf.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662727824/lamhouse/clientlogo/dhi_f3y1zs.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162160/mkagency/clients/8_brk5o0.gif">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662795146/lamhouse/clientlogo/dredgepro_io3lfe.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162199/mkagency/clients/polaris_symfge.jpg">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662728232/lamhouse/clientlogo/fitbe_sig6sm.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162161/mkagency/clients/10_xx2hez.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662728779/lamhouse/clientlogo/garagevala_gwhhbi.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162162/mkagency/clients/11_newb8t.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662792427/lamhouse/clientlogo/jagapath2_noeyvh.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162162/mkagency/clients/12_ulao1e.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662792327/lamhouse/clientlogo/jagapathi1_x2z3dk.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162161/mkagency/clients/13_yytufp.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662789592/lamhouse/clientlogo/k6_wnnkti.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162162/mkagency/clients/14_x7n78g.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662789921/lamhouse/clientlogo/kfs_v11rzc.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162163/mkagency/clients/15_zdp4oa.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662792521/lamhouse/clientlogo/krsa_habda0.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162162/mkagency/clients/16_urj06j.jpg">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662791309/lamhouse/clientlogo/mkagencies_uezpq1.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162163/mkagency/clients/17_ol6lcl.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662795565/lamhouse/clientlogo/massavi_tfefmx.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663163648/mkagency/clients/18_sljioq.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662792644/lamhouse/clientlogo/navipower_i9rsc1.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162162/mkagency/clients/19_exunn8.webp">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662792812/lamhouse/clientlogo/nslm_eaiaop.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162163/mkagency/clients/20_huhjkn.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662793437/lamhouse/clientlogo/pk_oymcai.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162164/mkagency/clients/21_vezswh.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662793685/lamhouse/clientlogo/paschim_zb4tmc.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162164/mkagency/clients/fortius_qifghj.jpg">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662793890/lamhouse/clientlogo/rdssigns_znmlgc.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162163/mkagency/clients/23_e5tvdf.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662793981/lamhouse/clientlogo/sakthi_bfc6sb.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162163/mkagency/clients/24_fxovbn.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662794931/lamhouse/clientlogo/tavara_lbif1j.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663163123/mkagency/clients/25_ptzhma.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662795030/lamhouse/clientlogo/techdeal_gl9prv.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663163568/mkagency/clients/kagisl_e9njou.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662795819/lamhouse/clientlogo/veera_chpvm4.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663163481/mkagency/clients/27_qxw7fh.png">
         </div>
         <div class="flex justify-center w-full bg-white shadow-lg h-64">
-        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1662796236/lamhouse/clientlogo/zynomi_ctva4e.png">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663163348/mkagency/clients/28_n4ik0b.png">
+        </div>
+        <div class="flex justify-center w-full bg-white shadow-lg h-64">
+        <img class="w-full aspect-auto object-none object-center" src="https://res.cloudinary.com/lamcom/image/upload/v1663162164/mkagency/clients/29_rizzkd.png">
         </div>
         
         

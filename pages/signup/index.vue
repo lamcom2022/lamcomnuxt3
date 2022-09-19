@@ -1,9 +1,10 @@
 <template>
-<Hero />
-<HomeAbout />
-<Blog :articles="articles" />
-<AboutClients />
-<SatisfyClients />
+  <div>
+    <Hero />
+    <SignUp />
+    <!-- <Testimonials /> -->
+  </div>
+
 </template>
 
 <script setup>

@@ -1,9 +1,12 @@
 <template>
-<Hero />
-<HomeAbout />
-<Blog :articles="articles" />
-<AboutClients />
-<SatisfyClients />
+  <div>
+    <Hero />
+    <CheckOut />   
+    <SatisfyClients />
+   
+    <!-- <Testimonials /> -->
+  </div>
+
 </template>
 
 <script setup>

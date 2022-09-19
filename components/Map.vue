@@ -1,9 +1,7 @@
 <template>
   <div
     class="
-      mx-auto
-      mt-8
-      my-16
+      mx-auto 
       grid
       grid-cols-1
       lg:grid
