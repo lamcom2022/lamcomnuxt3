@@ -62,12 +62,12 @@
             <input type="text" name="phone1" id="phone1" class="shrink w-72 form-control rounded mb-2 mx-4">
                 </div>
             </div>
-            <div class="flex mt-3">
+            <div class="flex mt-3 mx-4">
             <input type="checkbox" class="appearance-none indeterminate:bg-secondary py-3 w-6 h-6" />
-            <span class="text-lg text-gray-700 inline-flex mx-3">Billing Address is Same as Shipping Address</span>
+            <span class="text-lg text-gray-700 inline-flex mx-4">Billing Address is Same as Shipping Address</span>
             </div>
 
-            <button class="bg-gray-600 rounded-full mt-6 w-36 h-12 text-white font-semibold uppercase" type="submit">Save Address</button>
+            <button class="bg-gray-600 rounded-full mt-6 w-36 h-12 text-white font-semibold uppercase mx-4" type="submit">Save Address</button>
             
            </div> 
        </form>

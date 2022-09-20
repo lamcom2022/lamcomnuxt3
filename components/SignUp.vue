@@ -4,7 +4,7 @@
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute inset-0" aria-hidden="true"></div>
             <div class="absolute inset-y-0 right-0 pl-10 max-w-full flex">
-                <div class="w-screen max-w-4xl">
+                <div class="max-w-4xl">
                     <div class="h-full divide-y divide-gray-200 flex flex-col bg-white shadow-2xl">
                         <div class="flex-1 h-0 overflow-y-auto">
                             <header
@@ -40,7 +40,7 @@
                                             <input type="hidden" name="form-name" value="SignUp" />
                                             <div class="sm:overflow-hidden">
                                                
-                                                <section aria-labelledby="shipping-heading" class="mt-2">
+                                                <section aria-labelledby="shipping-heading" class="mt-10">
 
                                                     <div class="sm:col-span-6">
                                                         <h2 class="font-medium  text-blue-gray-900">
@@ -56,7 +56,7 @@
                                                                 <input v-model="data.full_name" type="text"
                                                                     name="full_name" id="full_name"
                                                                     autocomplete="given-name"
-                                                                    class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border-gray-300">
+                                                                    class="py-3 px-4 block w-full shadow-sm focus:ring-green-500 focus:border-green-500 border-gray-300" required>
                                                             </div>
                                                         </div>
                                                         <div class="sm:col-span-6">
@@ -88,67 +88,7 @@
                                                     </div>
                                                 </section>
 
-                                                <section aria-labelledby="shipping-heading" class="mt-10">
-                                                    <div class="sm:col-span-6">
-                                                        <h2 class="font-medium  text-blue-gray-900">Address
-                                                            Information</h2>
-                                                        <!--<p class="mt-1 text-sm text-blue-gray-500">This information will be kept private and never be shared with others for marketing purposes.</p>-->
-                                                    </div>
-
-                                                    <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
-                                                        <div class="sm:col-span-3">
-                                                            <label for="address"
-                                                                class="block text-sm font-medium text-gray-700">Address</label>
-                                                            <div class="mt-1">
-                                                                <input type="text" id="address" name="address"
-                                                                    autocomplete="street-address"
-                                                                    class="py-3 px-4 block w-full pl-5 focus:ring-green-500 focus:border-green-500 border-gray-300" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="sm:col-span-3">
-                                                            <label for="apartment"
-                                                                class="block text-sm font-medium text-gray-700">Apartment,
-                                                                suite, etc.</label>
-                                                            <div class="mt-1">
-                                                                <input type="text" id="apartment" name="apartment"
-                                                                    class="py-3 px-4 block w-full pl-5 focus:ring-green-500 focus:border-green-500 border-gray-300" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <label for="city"
-                                                                class="block text-sm font-medium text-gray-700">City</label>
-                                                            <div class="mt-1">
-                                                                <input type="text" id="city" name="city"
-                                                                    autocomplete="address-level2"
-                                                                    class="py-3 px-4 block w-full pl-5 focus:ring-green-500 focus:border-green-500 border-gray-300" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <label for="region"
-                                                                class="block text-sm font-medium text-gray-700">State
-                                                                / Province</label>
-                                                            <div class="mt-1">
-                                                                <input type="text" id="region" name="region"
-                                                                    autocomplete="address-level1"
-                                                                    class="py-3 px-4 block w-full pl-5 focus:ring-green-500 focus:border-green-500 border-gray-300" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <label for="postal-code"
-                                                                class="block text-sm font-medium text-gray-700">Postal
-                                                                code</label>
-                                                            <div class="mt-1">
-                                                                <input type="text" id="postal-code" name="postal-code"
-                                                                    autocomplete="postal-code"
-                                                                    class="py-3 px-4 block w-full pl-5 focus:ring-green-500 focus:border-green-500 border-gray-300" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
+                                               
                                                 
                                                 <div class="sm:col-span-6 mt-10">
                                                     <div class="flex items-center">

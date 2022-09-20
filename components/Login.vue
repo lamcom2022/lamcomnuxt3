@@ -4,11 +4,11 @@
       class="flex-col justify-center flex  lg:overflow-hidden xs:flex-col lg:flex-row">
       <!--Faetures Section (Start)-->
       <div class="hidden lg:block relative lg:w-3/4 lg:h-full mx-auto">
-       <img src="https://res.cloudinary.com/lamcom/image/upload/c_scale,w_900/v1663429460/mkagency/login/login_brrler.jpg">
+       <img class="place-items-center mx-12" src="https://res.cloudinary.com/lamcom/image/upload/c_scale,w_900/v1663429460/mkagency/login/login_brrler.jpg">
        
       </div>
       <!--Faetures Section (End)-->
-      <div class="sm:mx-auto sm:w-full sm:max-w-md py-40 items-left">
+      <div class="lg:mx-auto lg:w-full py-40 items-left">
         <a href="/#" class="font-medium text-primary-600 hover:text-primary-500">
           <img tag="img" to="/#" alt="Logo" class="mx-auto h-12 w-auto" :src="menuitems.branding.logo.source" />
         </a>
