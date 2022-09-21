@@ -106,13 +106,13 @@
 			<!--<NuxtLink to="#" @click="useNuxtApp().$bus.$emit('evtShowContactSales')"
 				class="px-5 py-2 text-sm bg-primary-500 text-white rounded-full hover:bg-primary-700 transition-all duration-300">
 				Contact us</NuxtLink>-->
-				<NuxtLink to="#" @click="useNuxtApp().$bus.$emit('evtShowSignUp')"
+				<!-- <NuxtLink to="#" @click="useNuxtApp().$bus.$emit('evtShowSignUp')"
 				class="px-5 py-2 text-sm bg-primary-500 text-white rounded-full hover:bg-primary-700 transition-all duration-300">
-				Sign Up</NuxtLink>
+				Sign Up</NuxtLink> -->
 
 				 <router-link :to="{ path: '/login' }"> <button
 				class="px-5 py-2 text-sm bg-primary-500 text-white rounded-full hover:bg-primary-700 transition-all duration-300">
-				Login</button></router-link>
+				Signin</button></router-link>
 		</div>
 		<!--Nav action button end-->
 		<!--Nav Ends-->

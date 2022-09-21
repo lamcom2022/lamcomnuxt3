@@ -17,7 +17,7 @@
           Get started with {{ menuitems.title }}</h2>
         <p v-if="!forgotPassword && !formSignUp" class="mt-2 text-center text-sm text-gray-600 max-w">
           Don't have an account yet?
-          <a @click="handleSignUpClick" href="/signup" class="font-medium text-primary-600 hover:text-primary-500"> Sign up
+          <a @click="handleSignUpClick" href="#" class="font-medium text-primary-600 hover:text-primary-500"> Sign up
           </a>
         </p>
         <!-- <p v-if="forgotPassword" class="mt-2 text-center text-sm text-gray-600 max-w">
@@ -44,12 +44,12 @@
                 </div>
                 <div class="rounded-md shadow-sm">
                   <div>
-                    <input v-model="email" aria-label="Email address" name="email" type="email" required
+                    <input v-model="data.email" aria-label="Email address" name="email" type="email" required
                       class="flex-1 focus:ring-primary-500 focus:border-primary-500 block w-full min-w-0 rounded-none sm:text-sm border-gray-300"
                       placeholder="Email address" />
                   </div>
                   <div class="-mt-px">
-                    <input v-model="password" aria-label="Password" name="password" type="password" required
+                    <input v-model="data.password" aria-label="Password" name="password" type="password" required
                       class="flex-1 focus:ring-primary-500 focus:border-primary-500 block w-full min-w-0 rounded-none sm:text-sm border-gray-300"
                       placeholder="Password" />
                   </div>
@@ -201,9 +201,67 @@ export default {
   },
   methods: {
     // Method to authenticate user
-    signIn() {
+   async signIn() {
       try {
-        //this.$router.push('/account');
+        if (this.formSignUp == true) {
+          try {
+            debugger;
+            let request = {};
+            console.log(this.data);
+            const { data: SignUp } = await useFetch("/api/signup", {
+              method: "post",
+              body: this.data,
+            });
+            alert("Thank you for registering.");
+            this.data = {};
+            this.isSignUpFormVisible = !this.isSignUpFormVisible;
+            //this.$toast.success("Thank you for your enquiry! our customer success team will repond as soon as possible.")
+            await navigateTo({
+              path: "/management/members",
+
+              query: {},
+            });
+          } catch (error) {
+            this.isSignUpFormVisible = !this.isSignUpFormVisible;
+            alert(JSON.stringify(error));
+            //this.$toast.error(JSON.stringify(error))
+          } finally {
+          }
+        }
+        if (this.formSignIn == true) {
+          debugger;
+          alert("sign In sss");
+          console.log(this.data);
+          alert("Data : " + this.data.email + " " + this.data.password);
+          try {
+            const { data: contact } = await useFetch("/api/signin", {
+              method: "post",
+              body: this.data,
+            });
+            debugger
+            console.log("contact",contact)
+            // alert(
+            //   "Thank you for your enquiry! our customer success team will repond as soon as possible."
+            // );
+            this.data = {};
+            this.isContactFormVisible = !this.isContactFormVisible;
+            //this.$toast.success("Thank you for your enquiry! our customer success team will repond as soon as possible.")
+          } catch (error) {
+            this.isContactFormVisible = !this.isContactFormVisible;
+            alert(JSON.stringify(error));
+            //this.$toast.error(JSON.stringify(error))
+          } finally {
+          }
+        }
+        debugger
+        return await navigateTo({
+          path: "/management/members",
+
+          query: {},
+        });
+        //this.$router.push('/management/members');
+        //return navigateTo('/management/members')
+        //return false;
       } catch (error) {
         console.log(error);
       }

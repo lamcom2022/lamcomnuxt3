@@ -36,6 +36,8 @@
     "@sendgrid/mail": "^7.7.0",
     "@tailwindcss/forms": "^0.5.2",
     "destr": "^1.1.1",
+    "gridjs": "^5.1.0",
+    "gridjs-vue": "^5.0.4",
     "h3": "^0.7.15",
     "mitt": "^3.0.0",
     "moment-timezone": "^0.5.34",
