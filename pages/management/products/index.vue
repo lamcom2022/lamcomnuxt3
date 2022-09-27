@@ -84,11 +84,11 @@
   </div>
 </template>
 <script>
-import MemberPageHeader from "@/pages/management/members/MemberPageHeader.vue";
-import MemberSearch from "@/pages/management/members/MemberSearch.vue";
-import MemberDataTable from "@/pages/management/members/MemberGrid.vue";
+import MemberPageHeader from "~~/pages/management/products/ProductPageHeader.vue";
+import MemberSearch from "~~/pages/management/products/ProductSearch.vue";
+import MemberDataTable from "~~/pages/management/products/ProductGrid.vue";
 
-import MemberUpsert from "@/pages/management/members/MemberUpsert.vue";
+import MemberUpsert from "~~/pages/management/products/ProductUpsert.vue";
 import lefNavLinks from "@/store/admin-navigation.json";
 
 export default {

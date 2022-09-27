@@ -33,24 +33,15 @@ import "gridjs/dist/theme/mermaid.css";
 const gridRef = ref();
 const slist = ref([]);
 const { data: Members } = await useAsyncData(
-  "Members-list-" + Math.random,
+  "Product-list-" + Math.random,
   () =>
-    $fetch("/api/members", {
+    $fetch("/api/product/getall", {
       initialCache: false,
       method: "post",
       body: {
         projection: {
-          Name: 1,
-          Code: 1,
-          Kattalai: 1,
-          Star: 1,
-          CellPhone: 1,
-          LandlinePhone: 1,
-          CommunicationAddress: 1,
-          BookNo: 1,
-          SlNo: 1,
-          BookMonth: 1,
-          BookDate: 1,
+          name: 1,
+          imageUrl: 1,
         },
         filter: {},
         limit: 500,
@@ -66,47 +57,17 @@ onMounted(() => {
   const grid = new Grid({
     columns: [
       { id: "_id", name: "Id.", hidden: true },
-      { id: "Code", name: "Code/B.#/S.#", width: "200px" },
+     
       {
-        id: "Name",
-        name: "Full Name",
+        id: "name",
+        name: "Name",
       },
 
       {
-        id: "Star",
-        name: "Natchathiram",
+        id: "imageUrl",
+        name: "Image Url",
       },
-      {
-        id: "Kattalai",
-        name: "Kattalai",
-      },
-      {
-        id: "CellPhone",
-        name: "Mobile #.",
-      },
-      {
-        id: "BookNo",
-        width: "150px",
-        name: "Book #.",
-        hidden: true,
-      },
-      {
-        id: "SlNo",
-        width: "150px",
-        name: "Sl. #.",
-        hidden: true,
-      },
-      {
-        id: "BookMonth",
-        name: "Month",
-        width: "150px",
-      },
-      ,
-      {
-        id: "BookDate",
-        name: "Day",
-        width: "150px",
-      },
+      
     ],
     //CommunicationAddress
     //_.keys(Members._rawValue.documents[0]),
@@ -128,6 +89,7 @@ onMounted(() => {
     height: "600px",
     data: Members._rawValue.documents,
   });
+  debugger
   grid.render(gridRef.value);
 });
 //console.log("underscore=",_)

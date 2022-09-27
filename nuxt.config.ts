@@ -69,7 +69,7 @@ export default defineNuxtConfig({
 			{
 				hid: "og:site_name",
 				name: "og:site_name",
-				content: "SwaraNritya",
+				content: "lamcommk",
 			},
 			{
 				hid: "og:type",
@@ -79,7 +79,7 @@ export default defineNuxtConfig({
 			{
 				hid: "og:title",
 				name: "og:title",
-				content: process.env.npm_package_name || "Swara Nritya Company",
+				content: process.env.npm_package_name || "Lamcom",
 			},
 			{
 				hid: "og:description",
@@ -97,17 +97,17 @@ export default defineNuxtConfig({
 			{
 				hid: "author",
 				name: "author",
-				content: "SwaraNritya",
+				content: "Lamcom",
 			},
 			{
 				hid: "copyright",
 				name: "copyright",
-				content: "SwaraNritya",
+				content: "Lamcom",
 			},
 			{
 				hid: "reply-to",
 				name: "reply-to",
-				content: "contact@SwaraNritya.com",
+				content: "contact@lamcom.com",
 			},
 		],
 		link: [{rel: "icon", type: "image/x-icon", href: "/favicon.ico"}],
