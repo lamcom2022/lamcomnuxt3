@@ -25,7 +25,13 @@
           </h2>
         </div>
         <div class="grid place-content-center mt-3">
-          <router-link :to="{ path: '/productsub' }">
+          <router-link
+            :to="{
+              path: '/productsub',
+              query: { id: `${product._id}` },
+              params: { ProductId: `${product.id}` },
+            }"
+          >
             <button
               class="w-24 h-12 rounded bg-gray-900 hover:bg-primary-900 text-white"
             >

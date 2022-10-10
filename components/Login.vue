@@ -326,17 +326,15 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 import menuitems from "@/store/siteconfig.json";
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       users: {},
-      email: 'test@gmail.com',
-      password: 'password',
+      email: "test@gmail.com",
+      password: "password",
       error: null,
       menuitems,
       forgotPassword: false,
@@ -347,72 +345,72 @@ export default {
   },
   methods: {
     // Method to authenticate user
-  //  async signIn() {
-  //     try {
-  //       if (this.formSignUp == true) {
-  //         try {
-  //           debugger;
-  //           let request = {};
-  //           console.log(this.data);
-  //           const { data: SignUp } = await useFetch("/api/signup", {
-  //             method: "post",
-  //             body: this.data,
-  //           });
-  //           alert("Thank you for registering.");
-  //           this.data = {};
-  //           this.isSignUpFormVisible = !this.isSignUpFormVisible;
-  //           //this.$toast.success("Thank you for your enquiry! our customer success team will repond as soon as possible.")
-  //           await navigateTo({
-  //             path: "/management/members",
+    //  async signIn() {
+    //     try {
+    //       if (this.formSignUp == true) {
+    //         try {
+    //           debugger;
+    //           let request = {};
+    //           console.log(this.data);
+    //           const { data: SignUp } = await useFetch("/api/signup", {
+    //             method: "post",
+    //             body: this.data,
+    //           });
+    //           alert("Thank you for registering.");
+    //           this.data = {};
+    //           this.isSignUpFormVisible = !this.isSignUpFormVisible;
+    //           //this.$toast.success("Thank you for your enquiry! our customer success team will repond as soon as possible.")
+    //           await navigateTo({
+    //             path: "/management/members",
 
-  //             query: {},
-  //           });
-  //         } catch (error) {
-  //           this.isSignUpFormVisible = !this.isSignUpFormVisible;
-  //           alert(JSON.stringify(error));
-  //           //this.$toast.error(JSON.stringify(error))
-  //         } finally {
-  //         }
-  //       }
-  //       if (this.formSignIn == true) {
-  //         debugger;
-  //         alert("sign In sss");
-  //         console.log(this.data);
-  //         alert("Data : " + this.data.email + " " + this.data.password);
-  //         try {
-  //           const { data: contact } = await useFetch("/api/signin", {
-  //             method: "post",
-  //             body: this.data,
-  //           });
-  //           debugger
-  //           console.log("contact",contact)
-  //           // alert(
-  //           //   "Thank you for your enquiry! our customer success team will repond as soon as possible."
-  //           // );
-  //           this.data = {};
-  //           this.isContactFormVisible = !this.isContactFormVisible;
-  //           //this.$toast.success("Thank you for your enquiry! our customer success team will repond as soon as possible.")
-  //         } catch (error) {
-  //           this.isContactFormVisible = !this.isContactFormVisible;
-  //           alert(JSON.stringify(error));
-  //           //this.$toast.error(JSON.stringify(error))
-  //         } finally {
-  //         }
-  //       }
-  //       debugger
-  //       return await navigateTo({
-  //         path: "/management/members",
+    //             query: {},
+    //           });
+    //         } catch (error) {
+    //           this.isSignUpFormVisible = !this.isSignUpFormVisible;
+    //           alert(JSON.stringify(error));
+    //           //this.$toast.error(JSON.stringify(error))
+    //         } finally {
+    //         }
+    //       }
+    //       if (this.formSignIn == true) {
+    //         debugger;
+    //         alert("sign In sss");
+    //         console.log(this.data);
+    //         alert("Data : " + this.data.email + " " + this.data.password);
+    //         try {
+    //           const { data: contact } = await useFetch("/api/signin", {
+    //             method: "post",
+    //             body: this.data,
+    //           });
+    //           debugger
+    //           console.log("contact",contact)
+    //           // alert(
+    //           //   "Thank you for your enquiry! our customer success team will repond as soon as possible."
+    //           // );
+    //           this.data = {};
+    //           this.isContactFormVisible = !this.isContactFormVisible;
+    //           //this.$toast.success("Thank you for your enquiry! our customer success team will repond as soon as possible.")
+    //         } catch (error) {
+    //           this.isContactFormVisible = !this.isContactFormVisible;
+    //           alert(JSON.stringify(error));
+    //           //this.$toast.error(JSON.stringify(error))
+    //         } finally {
+    //         }
+    //       }
+    //       debugger
+    //       return await navigateTo({
+    //         path: "/management/members",
 
-  //         query: {},
-  //       });
-  //       //this.$router.push('/management/members');
-  //       //return navigateTo('/management/members')
-  //       //return false;
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   },
-  async signIn() {
+    //         query: {},
+    //       });
+    //       //this.$router.push('/management/members');
+    //       //return navigateTo('/management/members')
+    //       //return false;
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   },
+    async signIn() {
       try {
         if (this.formSignUp == true) {
           try {
@@ -468,6 +466,24 @@ export default {
                   body: this.data,
                 }
               );
+              debugger
+              const { data: product } = await useAsyncData(
+                "Product-DropdownList-" + Math.random,
+                () =>
+                  $fetch("/api/product/getall", {
+                    initialCache: false,
+                    method: "post",
+                    body: {
+                      projection: {
+                        name: "1",
+                        imageUrl: "1",
+                      },
+                      filter: {},
+                      limit: 500,
+                    },
+                  })
+              );
+              debugger
               this.isContactFormVisible = !this.isContactFormVisible;
               if (userverify._rawValue.document !== null) {
                 if (
