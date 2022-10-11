@@ -32,7 +32,7 @@ export default defineNuxtConfig({
 		},
 	},
 	runtimeConfig: {
-		// Private config that is only available on the server
+		// Private config that is only available on the serve
 		MONGODB_ATLAS_REST_URL: process.env.MONGODB_ATLAS_REST_URL,
 		MONGODB_ATLAS_REST_TOKEN: process.env.MONGODB_ATLAS_REST_TOKEN,
 		GOOGLE_MAP_TOKEN: process.env.GOOGLE_MAP_TOKEN,
