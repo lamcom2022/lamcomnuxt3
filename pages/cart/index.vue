@@ -43,7 +43,7 @@ export default {
         const { data: products } = await useAsyncData(
           "Category-list-" + Math.random,
           () =>
-            $fetch("/api/categories/getbyid", {
+            $fetch("/api/categories/getcategorybyid", {
               initialCache: false,
               method: "post",
               body: value,

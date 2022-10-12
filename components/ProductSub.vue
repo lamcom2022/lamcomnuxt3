@@ -83,6 +83,7 @@
 
 <script>
 export default {
+  scrollToTop: true,
   data() {
     return {
       data: [],
@@ -92,7 +93,7 @@ export default {
     async getCategory(value) {
       try {
         const { data: products } = await useAsyncData(
-          "Category-list-" + Math.random,
+          "Category-list-" + Math.random(),
           () =>
             $fetch("/api/categories/getbyid", {
               initialCache: false,
@@ -100,7 +101,6 @@ export default {
               body: value,
             })
         );
-        debugger;
         this.data = products._rawValue.documents;
       } catch (error) {
         console.log(error);
@@ -108,12 +108,13 @@ export default {
       }
     },
   },
-
-  created() {
-    //alert("Hi Suresh" + this.$route.query.id);
-
+  mounted() {
     this.getCategory(this.$route.query.id);
+
   },
+//   created() {
+//     this.getCategory(this.$route.query.id);
+//   },
 };
 </script>
 

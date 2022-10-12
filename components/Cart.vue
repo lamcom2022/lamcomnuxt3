@@ -1,5 +1,5 @@
 <template>
-  <div v-for="category of data" :key="category.id">
+  <div v-for="category of data" :key="category._id">
     <div
       v-if="category._id == this.$route.query.id"
       class="max-w-7xl mx-auto mt-16 my-16 lg:grid lg:grid-cols-2 md:flex md:flex-col"
@@ -99,7 +99,7 @@ export default {
         const { data: products } = await useAsyncData(
           "Category-list-" + Math.random,
           () =>
-            $fetch("/api/categories/getbyid", {
+            $fetch("/api/categories/getcategorybyid", {
               initialCache: false,
               method: "post",
               body: value,
@@ -107,7 +107,6 @@ export default {
         );
         debugger;
         this.data = products._rawValue.documents;
-
       } catch (error) {
         console.log(error);
       } finally {

@@ -224,7 +224,7 @@
           </div>
           <div class="px-6 mt-3 lg:grid lg:grid-cols-1 md:grid md:grid-cols-1">
             <div class="lg:grid lg:grid-cols-2 md:flex md:flex-col w-full">
-              <h2 class="text-lg font-bold uppercase">{{this.pname}}</h2>
+              <h2 class="text-lg font-bold uppercase">{{ this.pname }}</h2>
               <h2 class="text-lg font-bold text-secondary">
                 Rs. {{ this.price }}
               </h2>
@@ -357,9 +357,9 @@ export default {
     async getCategory(value, Quantity) {
       try {
         const { data: products } = await useAsyncData(
-          "Category-list-" + Math.random,
+          "Category-list-" + Math.random(),
           () =>
-            $fetch("/api/categories/getbyid", {
+            $fetch("/api/categories/getcategorybyid", {
               initialCache: false,
               method: "post",
               body: value,
@@ -375,19 +375,20 @@ export default {
             this.shippingcharge = 100;
             this.total = this.price + this.shippingcharge;
             this.purl = val.imageUrl;
-            this.pname = val.name
+            this.pname = val.name;
           }
         });
-
       } catch (error) {
         console.log(error);
       } finally {
       }
     },
   },
-
-  created() {
+  mounted() {
     this.getCategory(this.$route.query.id, this.$route.query._qty);
   },
+  // created() {
+  //   this.getCategory(this.$route.query.id, this.$route.query._qty);
+  // },
 };
 </script>

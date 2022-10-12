@@ -8,7 +8,11 @@ export default async (req, res) => {
             "collection": "category",
             "database": `${process.env.MONGODB_ATLAS_DATABASE}`,
             "dataSource": `${process.env.MONGODB_ATLAS_DATASOURCE}`,
-            "filter": { "_id": `${body._id}` }
+            "filter": {
+				"_id": {
+					"$oid": `${body}`,
+				}
+            }
         }
     })
     debugger
