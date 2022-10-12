@@ -8,18 +8,14 @@
         <img :src="category.imageUrl" />
       </div>
       <div class="max-w-7xl mx-auto md:px-6 lg:px-8">
-        <!-- {{ category._id }} --- {{ this.$route.query.id }} -->
         <div class="lg:text-left md:text-left">
           <h3 class="mt-2 text-xl md:text-xl font-bold mx-4">
-            <!-- 100% Natural Cotton, Glass Cloth -->
             {{ category.description }}
           </h3>
           <p
             class="mt-5 text-lg text-gray-700 text md:text-left line-through mx-4"
           >
-            <!-- M.R.P: ₹ 118.00 -->
             M.R.P: ₹ {{ category.price }}
-            <!-- {{ this.data[0].price }} -->
           </p>
           <p
             class="mt-5 font-semibold text-secondary text-lg text-gray-700 text mx-4"
@@ -113,9 +109,11 @@ export default {
       }
     },
   },
-
-  created() {
+  mounted() {
     this.getCategory(this.$route.query.id);
   },
+  // created() {
+  //   this.getCategory(this.$route.query.id);
+  // },
 };
 </script>

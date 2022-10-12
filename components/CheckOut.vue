@@ -212,7 +212,10 @@
         </form>
       </div>
       <!--cart column -->
-      <div class="flex flex-col w-full h-full md:mx-3 lg:mx-32 mt-12">
+      <div
+        class="flex flex-col w-full h-full md:mx-3 lg:mx-32 mt-12"
+        v-if="isDisplay"
+      >
         <h2
           class="text-xl lg:text-center md:text-left text-gray-700 lg:mx-32 md:mx-4 font-semibold uppercase pb-12 mt-10"
         >
@@ -343,16 +346,32 @@ export default {
       total: 0,
       purl: "",
       pname: "",
+      isDisplay: false,
+      actualPrice: 0,
+      actualDiscount: 0,
     };
   },
   methods: {
     handlePlus() {
-      this.qty = this.qty + 1;
-      //alert("plus = " + this.qty);
+      this.qty = parseInt(this.qty) + 1;
+      alert("plus = " + parseInt(this.qty));
+      this.price = parseInt(this.actualPrice) * parseInt(this.qty);
+      this.discounts = parseInt(this.actualDiscount) * parseInt(this.qty);
+      this.shippingcharge = 100;
+      this.total = this.price + this.shippingcharge;
+      this.purl = val.imageUrl;
+      this.pname = val.name;
+      this.isDisplay = true;
     },
     handleMinus() {
-      if (this.qty > 1) this.qty = this.qty - 1;
-      //alert("plus = " + this.qty);
+      if (this.qty > 1) {
+        alert("plus = " + this.qty);
+        this.qty = this.qty - 1;
+        this.price = parseInt(this.actualPrice) * parseInt(this.qty);
+        this.discounts = parseInt(this.actualDiscount) * parseInt(this.qty);
+        this.shippingcharge = 100;
+        this.total = this.price + this.shippingcharge;
+      }
     },
     async getCategory(value, Quantity) {
       try {
@@ -370,12 +389,15 @@ export default {
         this.data = products._rawValue.documents;
         this.data.forEach((val, index) => {
           if (val._id === this.$route.query.id) {
+            this.actualPrice = val.discountamount;
+            this.actualDiscount = val.discount;
             this.price = val.discountamount * Quantity;
             this.discounts = parseInt(val.discount) * parseInt(Quantity);
             this.shippingcharge = 100;
             this.total = this.price + this.shippingcharge;
             this.purl = val.imageUrl;
             this.pname = val.name;
+            this.isDisplay = true;
           }
         });
       } catch (error) {
