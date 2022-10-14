@@ -28,7 +28,7 @@
           <router-link
             :to="{
               path: '/productsub',
-              query: { id: `${product._id}` },
+              query: { id: `${product._id}`, name: `${product.name}` },
               params: { ProductId: `${product.id}` },
             }"
           >

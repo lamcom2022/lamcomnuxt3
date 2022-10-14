@@ -174,7 +174,7 @@
                             </div>
                             <div class="sm:col-span-6">
                               <label
-                                for="branchCode"
+                                for="imageUrl"
                                 class="block text-sm font-medium text-gray-700"
                                 >Image Url</label
                               >
@@ -188,9 +188,24 @@
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
                               </div>
-
+                            </div>
+                            <div class="sm:col-span-6">
+                              <label  class="block text-sm font-medium text-gray-700">
+                                  Product
+                              </label>
                               <div class="mt-1">
-                                <Dropdownlist
+                                <select  v-model="selected"   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300 ">
+                                  <option value="">Choose</option>
+                                  <option
+                                    v-for="option in product"
+                                    v-bind:key="option._id"
+                                    :value="option._id"
+                                  >
+                                    {{ option.name }}
+                                  </option>
+                                </select>
+                                <span>Selected: {{ selected }}</span>
+                                <!-- <Dropdownlist
                                   v-model="data.product"
                                   @selected_item="handleSelectedInMemberStatus"
                                   name="product"
@@ -202,7 +217,7 @@
                                     ],
                                   }"
                                   :selected_value="data.product"
-                                />
+                                /> -->
                               </div>
                             </div>
                           </div>
@@ -269,20 +284,14 @@ export default {
       api: "",
       date: new Date(),
       progress: false,
+      selected_value: this.selected_value,
+      selected:'' 
     };
   },
   methods: {
     async upsertMember(args) {
       try {
         if (this.data.name !== undefined) {
-          alert(
-            "upsertMember" +
-              this.data.name +
-              " " +
-              this.data.description +
-              " " +
-              this.data.imageUrl
-          );
           this.data.categoryid = "632ed43224ee30c3ed4e8625";
           this.data.discountamount = Math.round(
             (this.data.price * this.data.discount) / 100
@@ -301,7 +310,7 @@ export default {
             }
           );
         }
-        //this.data = {};
+        
         this.isUpsertMemberVisible = !this.isUpsertMemberVisible;
         useNuxtApp().$bus.$emit("evtRefreshMemberDatatable");
         this.$toast.success("Record saved successfully");
@@ -329,40 +338,21 @@ export default {
       } finally {
       }
     },
-    async productDropDownData() {
+    async getProduct() {
       try {
-        //Make sure to set the status and delete marker
-        this.data.is_enabled = false;
-        //end
-        debugger;
-        const { data: product } = await useAsyncData(
-          "Product-DropdownList-" + Math.random,
+        const { data: products } = await useAsyncData(
+          "Product-list-" + Math.random(),
           () =>
             $fetch("/api/product/getall", {
               initialCache: false,
               method: "post",
-              body: {
-                projection: {
-                  name: "1",
-                  imageUrl: "1",
-                },
-                filter: {},
-                limit: 500,
-              },
+              body: {},
             })
         );
-        debugger;
-        alert("product =" + product._rawValue.document);
-        if (product._rawValue.document !== null && product._rawValue.document) {
-          alert("product =" + product._rawValue.document);
-
-          this.product = product._rawValue.document;
-          console.log(this.product);
-        }
-        useNuxtApp().$bus.$emit("evtRefreshMemberDatatable");
-        //this.$toast.success("Record has been deleted successfully");
+        this.product = products._rawValue.documents;
+        
       } catch (error) {
-        //this.$toast.error("Oops! delete failed...");
+        console.log(error);
       } finally {
       }
     },
@@ -389,13 +379,11 @@ export default {
   computed: {},
   mounted() {
     //this.$toast.success("Record saved successfully");
-    //console.log(_.isString("moe"))
+    this.getProduct();
+    
   },
   created() {
     useNuxtApp().$bus.$on("evtUpsertMember", (data) => {
-      //alert(data)
-      this.productDropDownData();
-
       if (data !== undefined) {
         this.data = data;
       } else {

@@ -237,10 +237,10 @@
             <p class="text-sm font-bold uppercase py-3">colour :</p>
             <div class="flex pb-12 items-start">
               <div class="pt-2">
-                <a @click="handleMinus">- </a>
+                <a @click="handleMinus" class="hover:cursor-pointer">- </a>
                 <button class="rounded-lg border-2 w-16 h-12 mt-3 mx-4">
                   {{ this.qty }}</button
-                ><a @click="handlePlus">+ </a>
+                ><a @click="handlePlus" class="hover:cursor-pointer">+ </a>
               </div>
               <div class="pt-2">
                 <svg

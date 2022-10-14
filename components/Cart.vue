@@ -27,10 +27,10 @@
           >
             Quantity
           </p>
-          <a @click="handleMinus">- </a>
+          <a @click="handleMinus" class="hover:cursor-pointer">- </a>
           <button class="rounded-lg border-2 w-16 h-12 mt-3 mx-4">
             {{ this.qty }}</button
-          ><a @click="handlePlus">+ </a>
+          ><a @click="handlePlus" class="hover:cursor-pointer">+ </a>
           <div class="flex">
             <router-link
               :to="{
@@ -93,7 +93,7 @@ export default {
     async getCategory(value) {
       try {
         const { data: products } = await useAsyncData(
-          "Category-list-" + Math.random,
+          "Category-list-" + Math.random(),
           () =>
             $fetch("/api/categories/getcategorybyid", {
               initialCache: false,
@@ -101,7 +101,6 @@ export default {
               body: value,
             })
         );
-        debugger;
         this.data = products._rawValue.documents;
       } catch (error) {
         console.log(error);

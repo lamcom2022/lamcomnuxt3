@@ -4,10 +4,10 @@
       <h2
         class="text-3xl tracking-tight font-extrabold text-gray-600 sm:text-4xl mx-4"
       >
-        Cleaning Cloths
+        {{productname}}
       </h2>
     </div>
-    <div
+    <div v-if ="data.length > 0"
       class="max-w-7xl inline-block mx-auto mt-6 pt-5 grid gap-4 lg:grid-cols-3 lg:gap-x-4 lg:gap-y-8"
     >
       <div
@@ -40,6 +40,11 @@
           </router-link>
         </div>
       </div>
+    </div>
+    <div v-if ="data.length == 0"
+      class="max-w-7xl inline-block mx-auto mt-6 pt-5 grid gap-4 lg:grid-cols-3 lg:gap-x-4 lg:gap-y-8"
+    >
+        {{norecord}}
     </div>
   </div>
 
@@ -87,10 +92,12 @@ export default {
   data() {
     return {
       data: [],
+      productname:'',
+      norecord:'',
     };
   },
   methods: {
-    async getCategory(value) {
+    async getCategory(value, name) {
       try {
         const { data: products } = await useAsyncData(
           "Category-list-" + Math.random(),
@@ -101,7 +108,11 @@ export default {
               body: value,
             })
         );
+        alert(name)
+        this.productname = name;
         this.data = products._rawValue.documents;
+        if (this.data.length == 0)
+          norecord = 'No Record found'
       } catch (error) {
         console.log(error);
       } finally {
@@ -109,7 +120,7 @@ export default {
     },
   },
   mounted() {
-    this.getCategory(this.$route.query.id);
+    this.getCategory(this.$route.query.id, this.$route.query.name);
 
   },
 //   created() {
