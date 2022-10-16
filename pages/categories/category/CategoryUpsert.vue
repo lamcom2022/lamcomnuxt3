@@ -367,7 +367,7 @@ export default {
 
 	},
 	created() {
-		useNuxtApp().$bus.$on("evtUpsertMember", (data) => {
+		useNuxtApp().$bus.$on("evtUpsertCategory", (data) => {
 			//alert(data)
 			if (data !== undefined) {
 				this.data = data;
@@ -387,7 +387,7 @@ export default {
 		});
 	},
 	beforeDestroy() {
-		useNuxtApp().$bus.$off("evtUpsertMember");
+		useNuxtApp().$bus.$off("evtUpsertCategory");
 		useNuxtApp().$bus.$off("evtDeleteMember");
 	},
 };

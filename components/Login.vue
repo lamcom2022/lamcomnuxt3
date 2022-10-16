@@ -468,7 +468,7 @@ export default {
               );
               debugger
               const { data: product } = await useAsyncData(
-                "Product-DropdownList-" + Math.random,
+                "Product-DropdownList-" + Math.random(),
                 () =>
                   $fetch("/api/product/getall", {
                     initialCache: false,

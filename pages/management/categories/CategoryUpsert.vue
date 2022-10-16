@@ -86,8 +86,8 @@
                 <div class="px-4 divide-y divide-gray-200 sm:px-6">
                   <div class="space-y-6 pt-6 pb-5">
                     <form
-                      name="frmMember"
-                      id="frmMember"
+                      name="frmCategory"
+                      id="frmCategory"
                       class="space-y-8 divide-y divide-gray-200"
                       @submit.prevent="SaveAndUpdate"
                     >
@@ -108,7 +108,7 @@
                               <label
                                 for="branchNameEnglish"
                                 class="block text-sm font-medium text-gray-700"
-                                >Name</label
+                                >Name <span class=" text-red-900">*</span></label
                               >
                               <div class="mt-1">
                                 <input
@@ -117,15 +117,19 @@
                                   name="name"
                                   v-model="data.name"
                                   autocomplete="name"
+                                  required
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
                               </div>
+                              <label v-if='isName == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.name }}
+                              </label>
                             </div>
                             <div class="sm:col-span-6">
                               <label
                                 for="branchNameEnglish"
                                 class="block text-sm font-medium text-gray-700"
-                                >Price</label
+                                >Price<span class=" text-red-900">*</span></label
                               >
                               <div class="mt-1">
                                 <input
@@ -134,9 +138,14 @@
                                   name="price"
                                   v-model="data.price"
                                   autocomplete="price"
+                                  v-on:change ="priceValidation"
+                                  required
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
                               </div>
+                              <label v-if='isPrice == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.price }}
+                              </label>
                             </div>
                             <div class="sm:col-span-6">
                               <label
@@ -153,6 +162,9 @@
                                   autocomplete="discount"
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
+                                <label v-if='isDiscount == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.discount }}
+                              </label>
                               </div>
                             </div>
                             <div class="sm:col-span-6">
@@ -176,7 +188,7 @@
                               <label
                                 for="imageUrl"
                                 class="block text-sm font-medium text-gray-700"
-                                >Image Url</label
+                                >Image Url<span class=" text-red-900">*</span></label
                               >
                               <div class="mt-1">
                                 <input
@@ -185,13 +197,17 @@
                                   name="imageUrl"
                                   v-model="data.imageUrl"
                                   autocomplete="imageUrl"
+                                  required
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
                               </div>
+                              <label v-if='isImageUrl == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.imageUrl }}
+                              </label>
                             </div>
                             <div class="sm:col-span-6">
                               <label  class="block text-sm font-medium text-gray-700">
-                                  Product
+                                  Product<span class=" text-red-900">*</span>
                               </label>
                               <div class="mt-1">
                                 <select  v-model="selected"   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300 ">
@@ -204,7 +220,11 @@
                                     {{ option.name }}
                                   </option>
                                 </select>
+                                <label v-if='isProduct == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.product }}
+                                </label>
                                 <span>Selected: {{ selected }}</span>
+                                
                                 <!-- <Dropdownlist
                                   v-model="data.product"
                                   @selected_item="handleSelectedInMemberStatus"
@@ -233,6 +253,7 @@
             >
               <span class="inline-flex rounded-md shadow-sm">
                 <button
+                  v-on:click="resetForm"
                   type="button"
                   class="py-2 px-4 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
                 >
@@ -241,7 +262,7 @@
               </span>
               <span class="inline-flex rounded-md shadow-sm">
                 <button
-                  v-on:click="upsertMember"
+                  v-on:click="upsertCategory"
                   type="submit"
                   class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:shadow-outline-primary active:bg-primary-700 transition duration-150 ease-in-out"
                 >
@@ -285,34 +306,106 @@ export default {
       date: new Date(),
       progress: false,
       selected_value: this.selected_value,
-      selected:'' 
+      selected:'',
+      error: {},
+      isName: false,
+      isPrice: false,
+      isDiscount: false,
+      isImageUrl: false,
+      isProduct: false,
+      updateorsave: 0,
     };
   },
   methods: {
-    async upsertMember(args) {
+    priceValidation(){
+      //alert(this.data.price)
+      
+      regex = new Regex("[0-9]");
+
+      if (/^[0-9]+$/.test(this.data.price))
+      { 
+          alert("true")
+      }else { alert("false")}
+    },
+    validation(){
+      let isValidate = true;
+      if (this.data.name == undefined || this.data.name =='' || this.data.name == null){
+          this.error.name = 'Please Enter Name'
+          this.isName = true
+          isValidate = false
+        }
+        if(this.data.price == undefined || this.data.price =='' || this.data.price == null){
+          this.error.price = "Please Enter Price"
+          this.isPrice = true
+          isValidate = false
+        }
+        if(this.data.discount == undefined || this.data.discount =='' || this.data.discount == null){
+          this.error.discount = "Please Enter Discount"
+          this.isDiscount = true
+          isValidate = false
+        }
+        if(this.data.imageUrl == undefined || this.data.imageUrl =='' || this.data.imageUrl == null){
+          this.error.imageUrl = "Please Enter Image Url"
+          this.isImageUrl = true
+          isValidate = false
+        }
+        if(this.selected == undefined || this.selected =='' || this.selected == null){
+          this.error.product = "Please Select Product"
+          this.isProduct = true
+          isValidate = false
+        }
+        return isValidate
+    },
+    async upsertCategory(args) {
       try {
-        if (this.data.name !== undefined) {
-          this.data.categoryid = "632ed43224ee30c3ed4e8625";
+        var isValidate = this.validation();
+        if (isValidate == true) {
+          this.data.categoryid = this.selected;//"632ed43224ee30c3ed4e8625";
+          this.product.forEach((val, index) => {
+          if (val._id === this.selected) {
+              this.data.productName =  val.name;
+            }
+          });
           this.data.discountamount = Math.round(
             (this.data.price * this.data.discount) / 100
           );
           this.data.discountamount = this.data.price - this.data.discountamount;
-          const { data: product } = await useFetch("/api/categories/store", {
-            method: "post",
-            body: this.data,
-          });
-        } else {
-          const { data: Member } = await useFetch(
-            "/api/members/Member/" + this.data._id,
-            {
+          if (this.updateorsave == 0){
+            //alert(this.data.id)
+            const { data: category } = await useFetch("/api/categories/store", {
+              method: "post",
+              body: this.data,
+            });
+            alert("Category add successfully")
+            
+          }else{
+            alert(this.data.id + "  " + this.data.name)
+            //this.data.id ='6343ba11e326e25047b93d02'
+            const { data: category } = await useFetch("/api/categories/update", {
               method: "put",
               body: this.data,
-            }
-          );
+            });
+            alert("Category updated successfully")
+          }
+          this.resetForm();  
+          this.updateorsave =0;
+        } else{
+          return
         }
         
+         
+        // else {
+        //   const { data: Member } = await useFetch(
+        //     "/api/members/Member/" + this.data._id,
+        //     {
+        //       method: "put",
+        //       body: this.data,
+        //     }
+        //   );
+        // }
+        
         this.isUpsertMemberVisible = !this.isUpsertMemberVisible;
-        useNuxtApp().$bus.$emit("evtRefreshMemberDatatable");
+        useNuxtApp().$bus.$emit("evtRefreshProductDatatable");
         this.$toast.success("Record saved successfully");
       } catch (error) {
         console.log(error);
@@ -320,18 +413,20 @@ export default {
       } finally {
       }
     },
-    async deleteMember() {
+    async deleteCategory(value, name) {
       try {
         //Make sure to set the status and delete marker
         this.data.is_enabled = false;
         //end
-        const { data: Member } = await useFetch(
-          "/api/members/Member/" + this.data._id,
+        const { data: category } = await useFetch(
+          "/api/categories/delete",
           {
             method: "delete",
+            body: value,
           }
         );
-        useNuxtApp().$bus.$emit("evtRefreshMemberDatatable");
+        alert("Category " + name + " deleted successfully")
+        useNuxtApp().$bus.$emit("evtRefreshProductDatatable");
         //this.$toast.success("Record has been deleted successfully");
       } catch (error) {
         //this.$toast.error("Oops! delete failed...");
@@ -375,6 +470,14 @@ export default {
     handleSelectedInMemberStatus(data) {
       this.data.is_enabled = data;
     },
+    resetForm(){
+      this.data.name = '';
+      this.data.price = '';
+      this.data.discount = '';
+      this.data.description = '';
+      this.data.imageUrl = '';
+      this.selected = '';
+    }
   },
   computed: {},
   mounted() {
@@ -383,9 +486,18 @@ export default {
     
   },
   created() {
-    useNuxtApp().$bus.$on("evtUpsertMember", (data) => {
+    useNuxtApp().$bus.$on("evtUpsertCategory", (data) => {
+      
       if (data !== undefined) {
-        this.data = data;
+        this.data.id = data._cells[0].data
+        //alert(this.data.id)
+        this.data.name = data._cells[1].data
+        this.data.price = data._cells[2].data
+        this.data.discount = data._cells[3].data;
+        this.data.description = data._cells[4].data;
+        this.data.imageUrl = data._cells[5].data;;
+        this.selected = data._cells[6].data;
+        this.updateorsave = 1;
       } else {
         //set default value
         // this.data = {
@@ -405,16 +517,16 @@ export default {
     });
 
     //2) Delete Member record and then rebind datatable
-    useNuxtApp().$bus.$on("evtDeleteMember", (data) => {
+    useNuxtApp().$bus.$on("evtDeleteCategory", (data) => {
+      //alert("evtDeleteCategory")
       if (data !== undefined) {
-        this.data = data;
-        this.deleteMember();
+        this.deleteCategory(data._cells[0].data, data._cells[1].data);
       }
     });
   },
   beforeDestroy() {
-    useNuxtApp().$bus.$off("evtUpsertMember");
-    useNuxtApp().$bus.$off("evtDeleteMember");
+    useNuxtApp().$bus.$off("evtUpsertCategory");
+    useNuxtApp().$bus.$off("evtDeleteCategory");
   },
 };
 </script>

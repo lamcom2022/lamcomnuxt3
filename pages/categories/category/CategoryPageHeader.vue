@@ -25,7 +25,7 @@
 					</button>
 
 
-					<button @click="useNuxtApp().$bus.$emit('evtUpsertMember')" type="button"
+					<button @click="useNuxtApp().$bus.$emit('evtUpsertCategory')" type="button"
 						class="inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
 						<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke="currentColor" aria-hidden="true">

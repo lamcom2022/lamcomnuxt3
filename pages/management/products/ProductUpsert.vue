@@ -119,6 +119,9 @@
                                   autocomplete="name"
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
+                                <label v-if='isName == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.name }}
+                                </label>
                               </div>
                             </div>
                             <div class="sm:col-span-6">
@@ -153,6 +156,9 @@
                                   autocomplete="imageUrl"
                                   class="py-3 px-4 block w-full pl-5 focus:ring-primary-500 focus:border-primary-500 border-gray-300"
                                 />
+                                <label v-if='isImageUrl == true' class="ml-2 block text-sm leading-5 text-red-900">
+                                  {{ error.imageUrl }}
+                                </label>
                               </div>
                             </div>
                           </div>
@@ -168,6 +174,7 @@
             >
               <span class="inline-flex rounded-md shadow-sm">
                 <button
+                  v-on:click="resetForm"
                   type="button"
                   class="py-2 px-4 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
                 >
@@ -176,7 +183,7 @@
               </span>
               <span class="inline-flex rounded-md shadow-sm">
                 <button
-                  v-on:click="upsertMember"
+                  v-on:click="upsertProduct"
                   type="submit"
                   class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:shadow-outline-primary active:bg-primary-700 transition duration-150 ease-in-out"
                 >
@@ -217,36 +224,63 @@ export default {
       api: "",
       date: new Date(),
       progress: false,
+      error: {},
+      isName: false,
+      isImageUrl: false,
+      updateorsave: 0,
     };
   },
   methods: {
-    async upsertMember(args) {
+    validation(){
+      let isValidate = true;
+      if (this.data.name == undefined || this.data.name =='' || this.data.name == null){
+          this.error.name = 'Please Enter Name'
+          this.isName = true
+          isValidate = false
+        }
+        if(this.data.imageUrl == undefined || this.data.imageUrl =='' || this.data.imageUrl == null){
+          this.error.imageUrl = "Please Enter Image Url"
+          this.isImageUrl = true
+          isValidate = false
+        }
+        return isValidate
+    },
+    async upsertProduct(args) {
       try {
-        if (this.data.name !== undefined) {
-          alert(
-            "upsertMember" +
-              this.data.name +
-              " " +
-              this.data.description +
-              " " +
-              this.data.imageUrl
-          );
-          const { data: product } = await useFetch("/api/product/store", {
-            method: "post",
-            body: this.data,
-          });
-        } else {
-          const { data: Member } = await useFetch(
-            "/api/members/Member/" + this.data._id,
-            {
+        var isValidate = this.validation();
+        if (isValidate == true) {
+          if (this.updateorsave == 0){
+            const { data: product } = await useFetch("/api/product/store", {
+              method: "post",
+              body: this.data,
+            });
+            alert("Category add successfully")
+          }else{
+            alert(this.data.id + "  " + this.data.name)
+            const { data: category } = await useFetch("/api/product/update", {
               method: "put",
               body: this.data,
-            }
-          );
+            });
+            alert("Category updated successfully")
+          }
+          this.resetForm();  
+          this.updateorsave =0;
+        }else{
+          return
         }
+        
+        // else {
+        //   const { data: Member } = await useFetch(
+        //     "/api/members/Member/" + this.data._id,
+        //     {
+        //       method: "put",
+        //       body: this.data,
+        //     }
+        //   );
+        // }
         //this.data = {};
         this.isUpsertMemberVisible = !this.isUpsertMemberVisible;
-        useNuxtApp().$bus.$emit("evtRefreshMemberDatatable");
+        useNuxtApp().$bus.$emit("evtRefreshProductDatatable");
         this.$toast.success("Record saved successfully");
       } catch (error) {
         console.log(error);
@@ -254,18 +288,20 @@ export default {
       } finally {
       }
     },
-    async deleteMember() {
+    async deleteCategory(value, name) {
       try {
         //Make sure to set the status and delete marker
         this.data.is_enabled = false;
         //end
-        const { data: Member } = await useFetch(
-          "/api/members/Member/" + this.data._id,
+        const { data: proudct } = await useFetch(
+          "/api/product/delete",
           {
             method: "delete",
+            body: value,
           }
         );
-        useNuxtApp().$bus.$emit("evtRefreshMemberDatatable");
+        alert("Category " + name + " deleted successfully")
+        useNuxtApp().$bus.$emit("evtRefreshProductDatatable");
         //this.$toast.success("Record has been deleted successfully");
       } catch (error) {
         //this.$toast.error("Oops! delete failed...");
@@ -291,6 +327,11 @@ export default {
     handleSelectedInMemberStatus(data) {
       this.data.is_enabled = data;
     },
+    resetForm(){
+      this.data.name = '';
+      this.data.description = '';
+      this.data.imageUrl = '';
+    }
   },
   computed: {},
   mounted() {
@@ -298,10 +339,17 @@ export default {
     //console.log(_.isString("moe"))
   },
   created() {
-    useNuxtApp().$bus.$on("evtUpsertMember", (data) => {
+    useNuxtApp().$bus.$on("evtUpsertProduct", (data) => {
       //alert(data)
       if (data !== undefined) {
-        this.data = data;
+        this.data.id = data._cells[0].data
+        //alert(this.data.id)
+        this.data.name = data._cells[1].data
+        this.data.imageUrl = data._cells[2].data;
+        this.data.description = data._cells[3].data;
+        this.updateorsave = 1;
+        this.isName = false
+        this.isImageUrl= false
       } else {
         //set default value
         // this.data = {
@@ -321,15 +369,17 @@ export default {
     });
 
     //2) Delete Member record and then rebind datatable
-    useNuxtApp().$bus.$on("evtDeleteMember", (data) => {
+    useNuxtApp().$bus.$on("evtDeleteProduct", (data) => {
+      
       if (data !== undefined) {
-        this.data = data;
-        this.deleteMember();
+        alert(data._cells[0].data)
+        this.deleteCategory(data._cells[0].data, data._cells[1].data);
       }
+      
     });
   },
   beforeDestroy() {
-    useNuxtApp().$bus.$off("evtUpsertMember");
+    useNuxtApp().$bus.$off("evtUpsertProduct");
     useNuxtApp().$bus.$off("evtDeleteMember");
   },
 };

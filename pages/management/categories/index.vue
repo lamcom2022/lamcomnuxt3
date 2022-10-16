@@ -56,7 +56,7 @@
                 <MemberPageHeader
                   :heading="pageHeading"
                   showbutton="true"
-                  guide="Manage membership subscriptions i.e. search, add/modify/delete/activate/de-activate memberships"
+                  guide="Category i.e. search, add/modify/delete/activate/de-activate memberships"
                   addClickEvent="evtUpsertMember"
                 />
                 <MemberSearch :heading="searchHeading" />

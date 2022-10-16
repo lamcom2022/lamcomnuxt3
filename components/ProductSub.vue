@@ -108,7 +108,7 @@ export default {
               body: value,
             })
         );
-        alert(name)
+        //alert(name)
         this.productname = name;
         this.data = products._rawValue.documents;
         if (this.data.length == 0)

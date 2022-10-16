@@ -25,10 +25,16 @@ export default {
       data: [],
     };
   },
+  created() {
+    useNuxtApp().$bus.$on("evtRefreshProductDatatable", (data) => {
+      alert("refresh")
+      window.location.reload(true)
+    });
+  }
 };
 </script>
 <script setup>
-import { Grid } from "gridjs";
+import { Grid,h } from "gridjs";
 import "gridjs/dist/theme/mermaid.css";
 const gridRef = ref();
 const slist = ref([]);
@@ -59,12 +65,12 @@ onMounted(() => {
       { id: "_id", name: "Id.", hidden: true },
 
       {
-        id: "name",
+        name: "name",
         name: "Name",
       },
 
       {
-        id: "price",
+        price: "price",
         name: "Price",
       },
       {
@@ -75,6 +81,44 @@ onMounted(() => {
         id: "description",
         name: "Description",
       },
+      { id: "imageUrl", name: "imageUrl", hidden: true },
+      { id: "categoryid", name: "categoryid", hidden: true },
+      {
+					id: "btnDetails",
+					name: "",
+					formatter: (cell, row) => {
+						console.log(JSON.stringify(row));
+            //alert(JSON.stringify(row))
+						return h(
+							"button",
+							{
+								className: "inline-flex items-center rounded-full border border-transparent bg-primary-600 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
+								onClick: () => useNuxtApp().$bus.$emit("evtUpsertCategory", row),
+								
+							},
+							"Edit"
+						);
+					},
+					sort: false,
+			},
+      {
+					id: "btnDelete",
+					name: "",
+					formatter: (cell, row) => {
+						console.log(JSON.stringify(row));
+            //alert(JSON.stringify(row))
+						return h(
+							"button",
+							{
+								className: "inline-flex items-center rounded-full border border-transparent bg-primary-600 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
+								onClick: () => useNuxtApp().$bus.$emit("evtDeleteCategory", row),
+								
+							},
+							"Delete"
+						);
+					},
+					sort: false,
+			},
     ],
     //CommunicationAddress
     //_.keys(Members._rawValue.documents[0]),

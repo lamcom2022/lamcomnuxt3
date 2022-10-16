@@ -38,8 +38,8 @@
 
 							<div class="flex-1 xl:overflow-y-auto">
 								<MemberPageHeader :heading="pageHeading" showbutton="true"
-									guide="Manage membership subscriptions i.e. search, add/modify/delete/activate/de-activate memberships"
-									addClickEvent="evtUpsertMember" />
+									guide="Category i.e. search, add/modify/delete/activate/de-activate category"
+									addClickEvent="evtUpsertCategory" />
 								<MemberSearch :heading="searchHeading" />
 								<div class="w-full">
 									<!-- Main content (start)-->
